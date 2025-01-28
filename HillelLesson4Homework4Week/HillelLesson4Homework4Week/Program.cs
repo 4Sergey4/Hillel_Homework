@@ -1,7 +1,7 @@
 ﻿using System.Text;
 
 Console.OutputEncoding = Encoding.UTF8;
-do 
+while (true) 
 { 
     Console.Write("Введіть номер чи скорочення дня тижня:");
     string Day = Console.ReadLine();
@@ -55,4 +55,4 @@ do
             Console.WriteLine("У тижні сім днів\n");
             break;
     }
-} while (true);
+} 

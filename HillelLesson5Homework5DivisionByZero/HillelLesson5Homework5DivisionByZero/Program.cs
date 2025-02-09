@@ -5,7 +5,7 @@ Console.OutputEncoding = Encoding.UTF8;
 int firstNumber;
 int secondNumber;
 int result;
-while(true)
+while (true)
 {
     Console.Write("Введіть перше число:");
     firstNumber = Convert.ToInt32(Console.ReadLine());

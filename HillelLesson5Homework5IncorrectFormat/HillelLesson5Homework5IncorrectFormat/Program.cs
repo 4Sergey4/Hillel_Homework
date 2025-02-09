@@ -8,7 +8,7 @@ while (true)
     Console.Write("Введіть число:");
     if (double.TryParse(Console.ReadLine(), out d1))
     {
-        Console.WriteLine($"d1\n");
+        Console.WriteLine($"{d1}\n");
     }
     else
     {

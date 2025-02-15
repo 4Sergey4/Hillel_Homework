@@ -2,13 +2,25 @@
 
 Console.OutputEncoding = Encoding.UTF8;
 
-string top1 = "1", top2 = "2", top3 = "3";
-string mid1 = "4", mid2 = "5", mid3 = "6";
-string bot1 = "7", bot2 = "8", bot3 = "9";
+string[,] tabl = new string[3, 3]
+{
+    {"1", "2", "3"},
+    {"4", "5", "6"},
+    {"7", "8", "9"}
+};
 string player1 = "x";
 string player2 = "o";
-Console.WriteLine("Гра хрестики нулики. Починає грати 'х' (щоб зробити хід натисніть цифру на клавіатурі яка відповідає номеру на полі)");
-Console.WriteLine($" {top1} | {top2} | {top3}\n ---------\n {mid1} | {mid2} | {mid3}\n ---------\n {bot1} | {bot2} | {bot3}");
+Console.WriteLine("Гра хрестики нулики. Починає грати 'х' (щоб зробити хід натисніть цифру на клавіатурі яка відповідає номеру на полі)\n");
+for (int i = 0; i < tabl.GetLength(0); i++)
+{
+    for (int j = 0; j < tabl.GetLength(1); j++)
+    {
+        Console.Write($"| {tabl[i, j]} |");
+
+    }
+    Console.WriteLine();
+    Console.WriteLine("---------------");
+}
 
 while (true)
 {
@@ -16,90 +28,109 @@ while (true)
     switch (player1)
     {
         case "1":
-            top1 = "x";
+            tabl[0, 0] = "X";
             break;
         case "2":
-            top2 = "x";
+            tabl[0, 1] = "X";
             break;
         case "3":
-            top3 = "x";
+            tabl[0, 2] = "X";
             break;
         case "4":
-            mid1 = "x";
+            tabl[1, 0] = "X";
             break;
         case "5":
-            mid2 = "x";
+            tabl[1, 1] = "X";
             break;
         case "6":
-            mid3 = "x";
+            tabl[1, 2] = "X";
             break;
         case "7":
-            bot1 = "x";
+            tabl[2, 0] = "X";
             break;
         case "8":
-            bot2 = "x";
+            tabl[2, 1] = "X";
             break;
         case "9":
-            bot3 = "x";
+            tabl[2, 2] = "X";
             break;
     }
     Console.Clear();
-    Console.WriteLine($" {top1} | {top2} | {top3}\n ---------\n {mid1} | {mid2} | {mid3}\n ---------\n {bot1} | {bot2} | {bot3}");
-    Console.WriteLine("хід: о");
-    if (top1 == "x" && top2 == "x" && top3 == "x" ||
-       mid1 == "x" && mid2 == "x" && mid3 == "x" ||
-       bot1 == "x" && bot2 == "x" && bot3 == "x" ||
-       top1 == "x" && mid1 == "x" && bot1 == "x" ||
-       top2 == "x" && mid2 == "x" && bot2 == "x" ||
-       top3 == "x" && mid3 == "x" && bot3 == "x" ||
-       top1 == "x" && mid2 == "x" && bot3 == "x" ||
-       top3 == "x" && mid2 == "x" && bot1 == "x")
+    for (int i = 0; i < tabl.GetLength(0); i++)
+    {
+        for (int j = 0; j < tabl.GetLength(1); j++)
+        {
+            Console.Write($"| {tabl[i, j]} |");
+
+        }
+        Console.WriteLine();
+        Console.WriteLine("---------------");
+    }
+    Console.WriteLine("Хід o");
+    if (tabl[0, 0] == "X" && tabl[0, 1] == "X" && tabl[0, 2] == "X" ||
+        tabl[1, 0] == "X" && tabl[1, 1] == "X" && tabl[1, 2] == "X" ||
+        tabl[2, 0] == "X" && tabl[2, 1] == "X" && tabl[2, 2] == "X" ||
+        tabl[0, 0] == "X" && tabl[1, 0] == "X" && tabl[2, 0] == "X" ||
+        tabl[0, 1] == "X" && tabl[1, 1] == "X" && tabl[2, 1] == "X" ||
+        tabl[0, 2] == "X" && tabl[1, 2] == "X" && tabl[2, 2] == "X" ||
+        tabl[0, 0] == "X" && tabl[1, 1] == "X" && tabl[2, 2] == "X" ||
+        tabl[0, 2] == "X" && tabl[1, 1] == "X" && tabl[2, 0] == "X")
     {
         Console.WriteLine("Гравець 1 переміг!");
         return;
     }
+
     player2 = Console.ReadLine();
     switch (player2)
     {
         case "1":
-            top1 = "o";
+            tabl[0, 0] = "O";
             break;
         case "2":
-            top2 = "o";
+            tabl[0, 1] = "O";
             break;
         case "3":
-            top3 = "o";
+            tabl[0, 2] = "O";
             break;
         case "4":
-            mid1 = "o";
+            tabl[1, 0] = "O";
             break;
         case "5":
-            mid2 = "o";
+            tabl[1, 1] = "O";
             break;
         case "6":
-            mid3 = "o";
+            tabl[1, 2] = "O";
             break;
         case "7":
-            bot1 = "o";
+            tabl[2, 0] = "O";
             break;
         case "8":
-            bot2 = "o";
+            tabl[2, 1] = "O";
             break;
         case "9":
-            bot3 = "o";
+            tabl[2, 2] = "O";
             break;
     }
     Console.Clear();
-    Console.WriteLine($" {top1} | {top2} | {top3}\n ---------\n {mid1} | {mid2} | {mid3}\n ---------\n {bot1} | {bot2} | {bot3}");
-    Console.WriteLine("хід: x");
-    if (top1 == "o" && top2 == "o" && top3 == "o" ||
-        mid1 == "o" && mid2 == "o" && mid3 == "o" ||
-        bot1 == "o" && bot2 == "o" && bot3 == "o" ||
-        top1 == "o" && mid1 == "o" && bot1 == "o" ||
-        top2 == "o" && mid2 == "o" && bot2 == "o" ||
-        top3 == "o" && mid3 == "o" && bot3 == "o" ||
-        top1 == "o" && mid2 == "o" && bot3 == "o" ||
-        top3 == "o" && mid2 == "o" && bot1 == "o")
+    for (int i = 0; i < tabl.GetLength(0); i++)
+    {
+        for (int j = 0; j < tabl.GetLength(1); j++)
+        {
+            Console.Write($"| {tabl[i, j]} |");
+
+        }
+        Console.WriteLine();
+        Console.WriteLine("---------------");
+    }
+    Console.WriteLine("Хід x");
+    if (tabl[0, 0] == "O" && tabl[0, 1] == "O" && tabl[0, 2] == "O" ||
+        tabl[1, 0] == "O" && tabl[1, 1] == "O" && tabl[1, 2] == "O" ||
+        tabl[2, 0] == "O" && tabl[2, 1] == "O" && tabl[2, 2] == "O" ||
+        tabl[0, 0] == "O" && tabl[1, 0] == "O" && tabl[2, 0] == "O" ||
+        tabl[0, 1] == "O" && tabl[1, 1] == "O" && tabl[2, 1] == "O" ||
+        tabl[0, 2] == "O" && tabl[1, 2] == "O" && tabl[2, 2] == "O" ||
+        tabl[0, 0] == "O" && tabl[1, 1] == "O" && tabl[2, 2] == "O" ||
+        tabl[0, 2] == "O" && tabl[1, 1] == "O" && tabl[2, 0] == "O")
     {
         Console.WriteLine("Гравець 2 переміг!");
         return;

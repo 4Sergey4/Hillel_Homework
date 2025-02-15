@@ -12,24 +12,24 @@ Console.OutputEncoding = Encoding.UTF8;
     for (int i = 0; i < rand.Length; i++)
     {
         rand[i] = rnd.Next(-10, 10);
-        Console.WriteLine($"Massive so vsemi indeksami {i}: {rand[i]}");
+        Console.WriteLine($"Масив зі всіма індексами {i}: {rand[i]}");
     }
     Console.WriteLine("");
     for (int i = 0; i < rand.Length; i++)
     {
         if (i % 2 == 0)
         {
-            Console.WriteLine($"Parniy indeks {i}: {rand[i]}");
+            Console.WriteLine($"Парні індекси {i}: {rand[i]}");
             sum += rand[i];
         }
     }
     if (sum > 0)
     {
-        Console.WriteLine($"summa: {sum}");
+        Console.WriteLine($"Сума: {sum}");
     }
     else
     {
-        Console.WriteLine($"Summa otricatelna: {sum}");
+        Console.WriteLine($"Сума обчислення: {sum}");
     }
     Console.WriteLine();
 }
@@ -46,8 +46,9 @@ Console.OutputEncoding = Encoding.UTF8;
             tabl[i, j] = (i + 1) * (j + 1);
             Console.Write($"{i + 1} * {j + 1} = {tabl[i, j]} \t");
         }
-        Console.WriteLine();
+        Console.WriteLine("");
     }
+    Console.WriteLine();
 }
 
 //Пункт 4. Мінімальне та максимальне значення в масиві + індекси
@@ -87,8 +88,9 @@ Console.OutputEncoding = Encoding.UTF8;
             }
         }
     }
-    Console.WriteLine($"Min value[{a},{b}]: {minValue}");
-    Console.WriteLine($"Max value[{a1},{b1}]: {maxValue}");
+    Console.WriteLine($"Мінімальне число[{a},{b}]: {minValue}");
+    Console.WriteLine($"Максимальне число[{a1},{b1}]: {maxValue}");
+    Console.WriteLine();
 }
 //Пункт 5. Калькулятор днів тижня
 

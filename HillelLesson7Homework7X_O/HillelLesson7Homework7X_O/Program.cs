@@ -79,6 +79,10 @@ while (true)
         Console.WriteLine("Гравець 1 переміг!");
         return;
     }
+    else
+    {
+        Console.WriteLine("nichiya");
+    }
 
     player2 = Console.ReadLine();
     switch (player2)
@@ -134,5 +138,11 @@ while (true)
     {
         Console.WriteLine("Гравець 2 переміг!");
         return;
+    }
+    else
+    {
+        {
+            Console.WriteLine("nichiya");
+        }
     }
 }

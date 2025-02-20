@@ -3,8 +3,6 @@
 Console.OutputEncoding = Encoding.UTF8;
 
 int i = 1;
-StringBuilder sb = new StringBuilder();
-sb.AppendLine();
 
 StringBuilder sbb = new StringBuilder();
 
@@ -22,5 +20,4 @@ while (true)
     sbb.AppendLine(user);
    
 }
-sb.Append(sbb);
-Console.WriteLine(sb.ToString());
+Console.WriteLine(sbb.ToString());

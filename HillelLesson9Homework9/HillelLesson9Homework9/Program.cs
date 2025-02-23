@@ -6,7 +6,6 @@ Console.OutputEncoding = Encoding.UTF8;
 {
     Random random = new Random();
     int[] maxOne = new int[10];
-    int[] maxTwo = new int[10];
 
     for (int i = 0; i < maxOne.Length; i++)
     {
@@ -14,19 +13,25 @@ Console.OutputEncoding = Encoding.UTF8;
         Console.Write($"{maxOne[i]} ");
     }
     Console.WriteLine();
+
     int maxValue = maxOne.Max();
     Console.WriteLine($"\nМаксимальное значение: {maxValue}\n");
 
-    for (int i = 0; i < maxOne.Length; i++)
+    int maxsecondValue = 0;
+    foreach (int num in maxOne)
     {
-        if (maxOne[i] != maxValue)
+        if (num > maxValue)
         {
-            maxTwo[i] = maxOne[i];
+            maxsecondValue = maxValue;
+            maxValue = num;
         }
+        else if (num > maxsecondValue && num != maxValue)
+        {
+            maxsecondValue = num;
+        }
+        Console.Write($"{num} ");
     }
-    foreach (int i in maxTwo) Console.Write(i + " ");
-    maxValue = maxTwo.Max();
-    Console.WriteLine($"\n\nДруге максимальне значення: {maxValue}");
+    Console.WriteLine($"\n\nДруге максимальне значення: {maxsecondValue}");
 }
 Console.WriteLine("\n");
 
@@ -128,21 +133,30 @@ Console.WriteLine("\n");
 //4.
 {
     Random random = new Random();
-    int[,] tabl = new int[3, 3];
-    int sumLTR, sumRTL, ollSum;
-    for (int i = 0; i < 3; i++)
+    int[,] matrix = new int[3, 3];
+    int sumLTR = 0, sumRTL = 0, sumAll;
+
+    Console.WriteLine("Матріця: ");
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            tabl[i, j] = random.Next(1, 100);
-            Console.Write($"{tabl[i, j]} ");
+            matrix[i, j] = random.Next(1, 100);
+            Console.Write($"{matrix[i, j]} ");
         }
         Console.WriteLine();
     }
-    sumLTR = tabl[0, 0] + tabl[1, 1] + tabl[2, 2];
-    sumRTL = tabl[0, 2] + tabl[1, 1] + tabl[2, 0];
-    ollSum = sumLTR + sumRTL;
-    Console.WriteLine($"Сума елементів з ліва на право: {sumLTR}");
-    Console.WriteLine($"Сума елементів з права на ліво: {sumRTL}");
-    Console.WriteLine($"Сума обох діагоналей: {ollSum}");
+
+    int row = matrix.GetLength(0);
+    for (int i = 0; i < row; i++)
+    {
+        sumLTR += matrix[i, i];
+        sumRTL += matrix[i, row - i - 1];
+    }
+    Console.WriteLine();
+
+    sumAll = sumLTR + sumRTL;
+    Console.WriteLine($"Сума з ліва на право: {sumLTR}");
+    Console.WriteLine($"Сума з права на ліво: {sumRTL}");
+    Console.WriteLine($"Сума всіх елементів діагоналей: {sumAll}");
 }

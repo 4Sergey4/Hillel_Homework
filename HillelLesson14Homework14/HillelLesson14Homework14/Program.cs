@@ -8,8 +8,8 @@ namespace HillelLesson14Homework14
         {
             Console.OutputEncoding = Encoding.UTF8;
 
-            Account joe = new Account("Joe", 4500);
-            Account bob = new Account("Bob", 55000);
+            Account joe = new Account("Joe");
+            Account bob = new Account("Bob");
 
             while (true)
             {

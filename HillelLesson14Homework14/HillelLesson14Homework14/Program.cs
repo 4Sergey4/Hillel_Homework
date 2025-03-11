@@ -8,50 +8,29 @@ namespace HillelLesson14Homework14
         {
             Console.OutputEncoding = Encoding.UTF8;
 
-            Account joe = new Account("Joe");
-            Account bob = new Account("Bob");
+            Account BobAccount = new Account("Bob", 1000);
+            Account JoeAccount = new Account("Joe", 1500);
 
-            while (true)
-            {
-                joe.WriteMyInfo();
-                bob.WriteMyInfo();
-                Console.Write("Ведіть суму: ");
-                string input = Console.ReadLine();
-                if (input == "") break;
-                if (long.TryParse(input, out long amount))
-                {
-                    Console.Write("Оберіть власника рахунку: ");
-                    string owner = Console.ReadLine();
-                    if (owner == "Joe")
-                    {
-                        Console.Write("Оберіть операцю(-,+): ");
-                        string operation = Console.ReadLine();
-                        if (operation == "-")
-                        {
-                            joe.Withdrawal(amount);
-                        }
-                        else if (operation == "+")
-                        {
-                            joe.Deposit(amount);
-                        }
-                    }
-                    else if (owner == "Bob")
-                    {
-                        Console.WriteLine("Оберіть операцю(-,+): ");
-                        string operation = Console.ReadLine();
-                        if (operation == "-")
-                        {
-                            bob.Withdrawal(amount);
-                        }
-                        else if (operation == "+")
-                        {
-                            bob.Deposit(amount);
-                        }
-                    }
-                    Console.WriteLine("Для завершення натисніть Enter");
-                }
+            BobAccount.MyAccountInfo();
+            JoeAccount.MyAccountInfo();
+            Console.WriteLine();
 
-            }
+            BobAccount.Deposit(500);
+            BobAccount.MyAccountInfo();
+            JoeAccount.Deposit(1000);
+            JoeAccount.MyAccountInfo();
+            Console.WriteLine();
+
+            BobAccount.Withdraw(200);
+            BobAccount.MyAccountInfo();
+            JoeAccount.Withdraw(500);
+            JoeAccount.MyAccountInfo();
+            Console.WriteLine();
+
+            BobAccount.Withdraw(2000);
+            BobAccount.MyAccountInfo();
+            JoeAccount.Withdraw(2500);
+            JoeAccount.MyAccountInfo();
         }
     }
 }

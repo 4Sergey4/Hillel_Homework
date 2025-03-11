@@ -8,93 +8,53 @@ namespace HillelLesson14Homework14
 {
     internal class Account
     {
-        private long _joeBalance = 4500;
-        private long _bobBalance = 55000;
+        private long _balance;
+        private string Name;
 
-        public string Name;
-        public long JoeBalance 
-        { 
-            get
-            {
-                return _joeBalance;
-            }
-            set
-            {
-                _joeBalance = value;
-            }
-        }
-        public long BobBalance
-        {
-            get
-            {
-                return _bobBalance;
-            }
-            set
-            {
-                _bobBalance = value;
-            }
-        }
-
-        public Account(string name)
+        public Account(string name, long initialBalance)
         {
             Name = name;
-        }
-        public void WriteMyInfo()
-        {
-            if(Name == "Joe")
+            if (initialBalance >= 0)
             {
-                Console.WriteLine($"Ім'я: {Name}, Баланс: {JoeBalance}$");
+                _balance = initialBalance;
             }
-            else if (Name == "Bob")
+            else
             {
-                Console.WriteLine($"Ім'я: {Name}, Баланс: {BobBalance}$");
+                initialBalance = 0;
+            }
+            
+        }
+
+        public void Deposit(long amount)
+        {
+            if (amount > 0)
+            {
+                _balance += amount;
+                Console.WriteLine($"{amount} додано на рахунок {Name}");
+            }
+            else
+            {
+                Console.WriteLine("Сума повинна бути більше 0");
             }
         }
 
-        public long Withdrawal(long amount)
+        public bool Withdraw(long amount)
         {
-            if (Name == "Joe")
+            if (amount > 0 && amount <= _balance)
             {
-                if (amount > JoeBalance)
-                {
-                    Console.WriteLine("Баланс власника не може бути менше нуля!");
-                    return 0;
-                }
-                JoeBalance -= amount;
+                _balance -= amount;
+                Console.WriteLine($"{amount} знято з рахунку");
+                return true;
             }
-            else if (Name == "Bob")
+            else
             {
-                if (amount > BobBalance)
-                {
-                    Console.WriteLine("Баланс власника не може бути менше нуля!");
-                    return 0;
-                }
-                BobBalance -= amount;
+                Console.WriteLine("Недостатньо коштів на рахунку");
+                return false;
             }
-            return amount;
         }
-
-        public long Deposit(long amount)
+        public void MyAccountInfo()
         {
-            if (Name == "Joe")
-            {
-                if(amount < 0)
-                {
-                    Console.WriteLine("Сума не може бути менше нуля!");
-                    return 0;
-                }
-                JoeBalance += amount;
-            }
-            else if (Name == "Bob")
-            {
-                if (amount < 0)
-                {
-                    Console.WriteLine("Сума не може бути менше нуля!");
-                    return 0;
-                }
-                BobBalance += amount;
-            }
-            return amount;
+            Console.WriteLine($"На рахунку {Name} {_balance} $");
         }
     }
 }

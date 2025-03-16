@@ -15,9 +15,9 @@ namespace HillelLesson15Homework15.Vegetable
             products = new List<Product>();
         }
 
-        public void AddProducts(Product product)
+        public void AddProducts(List<Product> product)
         {
-            products.Add(product);
+            products.AddRange(product);
         }
         public void PrintProductsInfo()
         {

@@ -17,10 +17,8 @@ namespace HillelLesson15Homework15
 
             VegetableShop shop = new VegetableShop();
 
-            foreach (var product in products)
-            {
-                shop.AddProducts(product);
-            }
+            shop.AddProducts(products);
+            
             shop.PrintProductsInfo();
         }
     }
